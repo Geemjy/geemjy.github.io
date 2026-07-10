@@ -1,327 +1,265 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
 <head>
+    <title>Jooyeon Geem's page @ NAOJ</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jooyeon Geem's page @ NAOJ</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #f6f7f9;
-    --card: #ffffff;
-    --ink: #1f2430;
-    --ink-soft: #414958;
-    --muted: #7a8291;
-    --line: #e8eaf0;
-    --accent: #14746f;      /* teal */
-    --accent-soft: #e4f1ef;
+    --accent: #14746f;       /* teal green */
+    --accent-deep: #0e5854;
+    --ink: #222;
+    --rule: #e0ded6;
   }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
   body {
     margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 22px 24px 48px;
+    background: #fbfaf7;
     color: var(--ink);
-    line-height: 1.5;
-    background: var(--bg);
-    font-size: 14.5px;
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.4;
+    letter-spacing: -0.1px;
     -webkit-font-smoothing: antialiased;
   }
-
   a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+  a:hover { color: var(--accent-deep); text-decoration: underline; }
 
-  .wrap {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 28px 22px 56px;
-  }
+  .page-wrap { max-width: 900px; margin: 0; }
+  p { max-width: 900px; margin: 0 0 6px; }
+  ol { max-width: 900px; }
+  h3 { margin-left: 0; }
+  hr { border: none; border-top: 1px solid var(--rule); margin: 10px 0; }
 
-  /* ---------- Header ---------- */
-  .hero {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 22px 24px;
-  }
-  .hero-photo {
-    flex-shrink: 0;
-    width: 132px;
-    height: 176px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  .hero-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin: 0 0 2px;
-  }
-  .hero-role { color: var(--accent); font-weight: 600; margin: 0 0 6px; }
-  .hero-affil { font-size: 0.86rem; color: var(--ink-soft); margin: 1px 0; }
+  /* section headers in green; keep the name dark */
+  font[size="5"] { color: var(--accent-deep); letter-spacing: 0.01em; }
+  .main-table font[size="5"] { color: var(--ink); }
+  font[size="4"] { color: #3a3a3a; }
 
-  .contact {
-    margin-top: 12px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2px 14px;
-    font-size: 0.82rem;
-  }
-  .contact dt { color: var(--muted); font-weight: 600; white-space: nowrap; }
-  .contact dd { margin: 0; color: var(--ink-soft); }
+  /* header block */
+  table.main-table { max-width: 900px; width: 100%; }
+  .main-table > tbody > tr > td { vertical-align: top; }
+  .main-table img { border: 1px solid #ddd; padding: 3px; background: #fff; }
+  .main-table table th { color: #7a7a7a; font-weight: normal; padding-right: 10px; }
 
-  /* ---------- Sections ---------- */
-  .section {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 20px 24px;
-    margin-top: 16px;
-  }
-  .section h2 {
-    font-size: 1.02rem;
-    font-weight: 700;
-    margin: 0 0 12px;
-    padding-left: 10px;
-    border-left: 4px solid var(--accent);
-    line-height: 1.1;
-  }
-  .section p { margin: 0 0 8px; color: var(--ink-soft); }
-  .section p:last-child { margin-bottom: 0; }
-  .note { font-size: 0.82rem; color: var(--muted); }
+  /* career table */
+  table.career-table { max-width: 900px; width: 100%; border-collapse: collapse; }
+  table.career-table th, table.career-table td { border: 1px solid var(--rule); padding: 4px 10px; vertical-align: top; }
+  table.career-table th { color: var(--accent-deep); background: #f3f1ea; }
 
-  /* ---------- Career ---------- */
-  .career-item {
-    display: grid;
-    grid-template-columns: 130px 1fr auto;
-    gap: 2px 16px;
-    padding: 8px 0;
-    border-top: 1px solid var(--line);
-    align-items: baseline;
-  }
-  .career-item:first-child { border-top: none; }
-  .career-role { font-weight: 600; color: var(--accent); font-size: 0.86rem; }
-  .career-body { font-size: 0.9rem; }
-  .career-body .place { color: var(--muted); font-size: 0.82rem; }
-  .career-date { color: var(--muted); font-size: 0.8rem; white-space: nowrap; text-align: right; }
-
-  /* ---------- Publications ---------- */
-  .pub-links { margin-bottom: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
-  .pub-links a {
-    background: var(--accent-soft);
-    color: var(--accent);
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-  .pub-links a:hover { background: var(--accent); color: #fff; text-decoration: none; }
-
-  .subhead {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 16px 0 8px;
-  }
-  .subhead:first-of-type { margin-top: 4px; }
-
-  .paper-entry {
-    padding: 7px 0 7px 14px;
-    border-left: 2px solid var(--line);
-    margin-bottom: 4px;
-  }
-  .paper-entry:hover { border-left-color: var(--accent); }
-  .paper-entry .title { font-weight: 600; font-size: 0.9rem; line-height: 1.4; }
-  .paper-entry .title cite { font-style: normal; }
-  .paper-entry .authors { font-size: 0.82rem; color: var(--ink-soft); }
-  .paper-entry .authors b { color: var(--ink); }
-  .paper-entry .journal { font-size: 0.82rem; color: var(--muted); }
-  .paper-entry .journal i { font-style: italic; }
-  .paper-entry .eqcontrib { font-size: 0.76rem; color: var(--muted); }
-  .paper-icon { vertical-align: middle; margin-left: 3px; opacity: 0.8; }
-  .paper-icon:hover { opacity: 1; }
-
-  @media (max-width: 640px) {
-    .hero { flex-direction: column; align-items: center; text-align: center; }
-    .contact { text-align: left; }
-    .career-item { grid-template-columns: 1fr; }
-    .career-date { text-align: left; }
-  }
+  /* publications */
+  div.paper-entry { max-width: 870px; margin-left: 0; margin-top: 0.35em; line-height: 1.38; }
+  .paper-entry cite { color: var(--ink); }
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<div class="page-wrap">
 
-  <!-- HERO -->
-  <header class="hero">
-    <img class="hero-photo" src="./profile_crop.jpg" alt="Jooyeon Geem" width="132" height="176" />
-    <div>
-      <h1 class="hero-name">Jooyeon GEEM (김주연)</h1>
-      <p class="hero-role">Project Researcher</p>
-      <p class="hero-affil"><a href="https://www.nao.ac.jp/en/research/project/rise.html">RISE Project</a> &ndash; Martian Moons eXploration (MMX) mission, Geodesy team</p>
-      <p class="hero-affil"><a href="https://www.nao.ac.jp/en/">National Astronomical Observatory of Japan (NAOJ)</a>, Mitaka, Tokyo, Japan</p>
+<hr />
+<hr />
+<table class="main-table" border=0>
+<tbody>
+<tr><td align=left> <img src="./profile_crop.jpg" width="200" height="267"></td>
+<td align=left><b><font size="5">&nbsp;Jooyeon GEEM (김주연)</font></b><br />
+        <font size="4">
+        &nbsp;&nbsp;Project Researcher</font><br />
+        &nbsp;&nbsp;<a href="https://www.nao.ac.jp/en/research/project/rise.html">RISE Project</a> &ndash; Martian Moons eXploration (MMX) mission, Geodesy team
+        <br />
+        &nbsp;&nbsp;<a href="https://www.nao.ac.jp/en/">National Astronomical Observatory of Japan (NAOJ)</a>, Mitaka, Tokyo, Japan
+	<br />
+	<br />
 
-      <dl class="contact">
-        <dt>Email</dt><dd>jooyeon.geem@nao.ac.jp</dd>
-        <dt></dt><dd>ksky0422@gmail.com</dd>
-        <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0002-3291-4056" target="_blank">0000-0002-3291-4056</a></dd>
-        <dt>GitHub</dt><dd><a href="https://github.com/Geemjy" target="_blank">github.com/Geemjy</a></dd>
-        <dt>Interest</dt><dd>Small bodies in the solar system</dd>
-        <dt>Phone</dt><dd>+82-10-2992-0258 (South Korea)</dd>
-		<dt>Phone</dt><dd>+81-70-3074-4932 (Japan)</dd>  
-      </dl>
-    </div>
-  </header>
+	<table>
+          <tr><th align="left">Email</th><td>jooyeon.geem@nao.ac.jp&nbsp;</td></tr>
+	  <tr><th align="left">    </th><td>ksky0422@gmail.com&nbsp;</td></tr>
+          <tr><th align="left">ORCID</th><td><a href="https://orcid.org/0000-0002-3291-4056" target="_blank">0000-0002-3291-4056</a></td></tr>
+          <tr><th align="left">GitHub</th><td><a href="https://github.com/Geemjy" target="_blank">github.com/Geemjy</a></td></tr>
+          <tr><th align="left" valign="top">Interest</th><td>Small bodies in the solar system,
+		especially asteroids via Polarimetry and Spectroscopy.</td></tr>
+          <tr><th align="left">Phone</th><td>+82-10-2992-0258</td></tr>
+	</table>
+   </td>
+ </tr>
+</tbody>
+</table>
+<hr />
 
-  <!-- BIO -->
-  <section class="section">
-    <h2>Biography</h2>
-    <p>Hello, I am Jooyeon GEEM (김주연). I am interested in small bodies in the Solar System, especially carbonaceous asteroids. My primary research techniques are observational methods, including polarimetry and spectroscopy. I also developed a polarimeter, SQUIDPOL, with Dr. Sunho Jin for observations of small bodies in the Solar System.</p>
-    <p class="note"><em>* Note: Jooyeon KIM is my passport name. I use GEEM for academic activity due to the overwhelming number of people with the last name KIM.</em></p>
-  </section>
+<!-- BIO -->
+<font size="5"><b>Biography</b></font><br />
+<p>Hello, I am Jooyeon GEEM (김주연).
+<p>I am interested in small Solar System bodies, especially carbonaceous asteroids. My primary research techniques are observational methods, including polarimetry and spectroscopy. I also developed a polarimeter, SQUIDPOL, with Dr. Sunho Jin for observations of small bodies in the Solar System. I am currently a member of the Geodesy team for the MMX mission, working on shape modeling.</p>
+<p><em>* Note: Jooyeon KIM is my passport name. I use GEEM for academic activity due to the overwhelming number of people with the last name KIM.</em></p>
+<hr />
 
-  <!-- Education & Research Careers -->
-  <section class="section">
-    <h2>Education &amp; Research Careers</h2>
-    <div class="career-item">
-      <div class="career-role">Project Researcher</div>
-      <div class="career-body">RISE Project (MMX mission) &middot; <span class="place">National Astronomical Observatory of Japan (NAOJ), Mitaka, Tokyo, Japan</span></div>
-      <div class="career-date">Jun. 2026 ~ Present</div>
-    </div>
-    <div class="career-item">
-      <div class="career-role">Post Doc.</div>
-      <div class="career-body">Asteroid Engineering Laboratory, Space Systems &middot; <span class="place">Luleå University of Technology, Kiruna, Sweden</span></div>
-      <div class="career-date">Feb. 2025 ~ May 2026</div>
-    </div>
-    <div class="career-item">
-      <div class="career-role">Post Doc.</div>
-      <div class="career-body">Astronomy Program, Dept. of Physics and Astronomy &middot; <span class="place">Seoul National University, Seoul, Korea</span></div>
-      <div class="career-date">Sep. 2024 ~ Jan. 2025</div>
-    </div>
-    <div class="career-item">
-      <div class="career-role">M.S. &amp; Ph.D.</div>
-      <div class="career-body">Astronomy Program, Dept. of Physics and Astronomy &middot; <span class="place">Seoul National University, Seoul, Korea</span></div>
-      <div class="career-date">Mar. 2018 ~ Aug. 2024</div>
-    </div>
-    <div class="career-item">
-      <div class="career-role">Exchange</div>
-      <div class="career-body">Department of Physics &middot; <span class="place">University of Oslo, Oslo, Norway</span></div>
-      <div class="career-date">Feb. 2016 ~ Jul. 2016</div>
-    </div>
-    <div class="career-item">
-      <div class="career-role">B.S.</div>
-      <div class="career-body">Department of Astronomy &amp; Space Science &middot; <span class="place">KyungHee University, Seoul, Korea</span></div>
-      <div class="career-date">Mar. 2012 ~ Mar. 2017</div>
-    </div>
-  </section>
+<!-- Education & Research Careers -->
+<font size="5"><b>Education &amp; Research Careers</b></font><br /><br />
+<table class="career-table" border=1>
+<tbody>
+<tr><th align="left" nowrap>Project Researcher</th><td>&nbsp;RISE Project (MMX mission)</td><td>&nbsp;National Astronomical Observatory of Japan (NAOJ), Mitaka, Tokyo, Japan</td><td nowrap>&nbsp;Jun. 2026 ~ Present</td></tr>
+<tr><th align="left" nowrap>Post Doc.</th><td>&nbsp;Asteroid Engineering Laboratory, Space Systems</td><td>&nbsp;Luleå University of Technology, Kiruna, Sweden</td><td nowrap>&nbsp;Feb. 2025 ~ May 2026</td></tr>
+<tr><th align="left" nowrap>Post Doc.</th><td>&nbsp;Astronomy Program, Dept. of Physics and Astronomy</td><td>&nbsp;Seoul National University, Seoul, Korea</td><td nowrap>&nbsp;Sep. 2024 ~ Jan. 2025</td></tr>
+<tr><th align="left" nowrap>M.S. &amp; Ph.D.</th><td>&nbsp;Astronomy Program, Dept. of Physics and Astronomy</td><td>&nbsp;Seoul National University, Seoul, Korea</td><td nowrap>&nbsp;Mar. 2018 ~ Aug. 2024</td></tr>
+<tr><th align="left" nowrap>Exchange</th><td>&nbsp;Department of Physics</td><td>&nbsp;University of Oslo, Oslo, Norway</td><td nowrap>&nbsp;Feb. 2016 ~ Jul. 2016</td></tr>
+<tr><th align="left" nowrap>B.S.</th><td>&nbsp;Department of Astronomy &amp; Space Science</td><td>&nbsp;KyungHee University, Seoul, Korea</td><td nowrap>&nbsp;Mar. 2012 ~ Mar. 2017</td></tr>
+</tbody>
+</table>
+<br />
+<hr />
 
-  <!-- Papers -->
-  <section class="section">
-    <h2>Publications</h2>
-    <div class="pub-links">
-      <a href="https://ui.adsabs.harvard.edu/search/q=author%3AGeem%2C+J&sort=date+desc" target="_blank">Full list on ADS</a>
-      <a href="https://orcid.org/0000-0002-3291-4056" target="_blank">ORCID</a>
-    </div>
+<!-- Papers -->
+<font size="5"><b>Publications</b></font><br />
+<p><a href="https://ui.adsabs.harvard.edu/search/q=author%3AGeem%2C+J&sort=date+desc" target="_blank">Full list on ADS</a> &nbsp;|&nbsp; <a href="https://orcid.org/0000-0002-3291-4056" target="_blank">ORCID</a></p>
 
-    <div class="subhead">Refereed &middot; First Author</div>
+<font size="4"><b>Refereed (First Author)</b></font><br />
+<br />
 
-    <div class="paper-entry">
-      <div class="title"><cite>SQUIDPOL: Seoul National University QUadruple Imaging Device for POLarimetry</cite><a href="https://ui.adsabs.harvard.edu/abs/2026JKAS...59..211J/abstract" target="_blank"><img class="paper-icon" src="./paper_icon.png" width="18" height="14" alt="paper link" /></a></div>
-      <div class="authors">Jin, S.<sup>&dagger;</sup>, <b>Geem, J.<sup>&dagger;</sup></b>, Ishiguro, M., Park, W., Oh, H., Park, C., Choi, S., Bach, Y.P., Ju, H., Seo, J., Lim, B., Im, M. &mdash; <span class="journal"><i>Journal of the Korean Astronomical Society</i>, 59, 211 (2026)</span></div>
-      <div class="eqcontrib"><sup>&dagger;</sup>These authors contributed equally to this work (co-first authors).</div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="title"><cite>Study of hydrated asteroids via their polarimetric properties at low phase angles</cite><a href="https://doi.org/10.1051/0004-6361/202449545" target="_blank"><img class="paper-icon" src="./paper_icon.png" width="18" height="14" alt="paper link" /></a></div>
-      <div class="authors"><b>Geem, J.</b>, Ishiguro, M., Naito, H., Hasegawa, S., Takahashi, J., Bach, Y.P., Jin, S., Takagi, S., Ono, T., Kuroda, D., Sekiguchi, T., Kuramoto, K., Nakamura, T., Watanabe, M. &mdash; <span class="journal"><i>Astronomy &amp; Astrophysics</i>, 688, A195 (2024)</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="title"><cite>Spectral Type and Geometric Albedo of (98943) 2001 CC21, the Hayabusa2# Mission Target</cite><a href="https://doi.org/10.1093/mnrasl/slad097" target="_blank"><img class="paper-icon" src="./paper_icon.png" width="18" height="14" alt="paper link" /></a></div>
-      <div class="authors"><b>Geem, J.</b>, Ishiguro, M., Granvik, M., Naito, H., Akitaya, H., Sekiguchi, T., Hasegawa, S., Kuroda, D., Oono, T., Bach, Y.P., Jin, S., Imazawa, R., Kawabata, K.S., Takagi, S., Yoshikawa, M., Djupvik, A.A., Gadeberg, J.T., Pursimo, T., Pedros, O.D., Thomsen, J.S., Gray, Z. &mdash; <span class="journal"><i>Monthly Notices of the Royal Astronomical Society</i>, 525, L17–L21 (2023)</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="title"><cite>(3200) Phaethon polarimetry in the negative branch: new evidence for the anhydrous nature of the DESTINY+ target asteroid</cite><a href="https://doi.org/10.1093/mnrasl/slac087" target="_blank"><img class="paper-icon" src="./paper_icon.png" width="18" height="14" alt="paper link" /></a></div>
-      <div class="authors"><b>Geem, J.</b>, Ishiguro, M., Takahashi, J., Akitaya, H., Kawabata, K., Nakaoka, T., Imazawa, R., Mori, F., Jin, S., Bach, Y., Jo, H., Kuroda, D., Hasegawa, S., Yoshida, F., Ishibashi, K., Sekiguchi, T., Beniyama, J., Arai, T., Ikeda, Y., Shinnaka, Y., Granvik, M., et al. &mdash; <span class="journal"><i>Monthly Notices of the Royal Astronomical Society</i>, 516(1), L53–L57 (2022)</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="title"><cite>A polarimetric study of asteroids in comet-like orbits</cite><a href="https://www.aanda.org/articles/aa/abs/2022/02/aa42014-21/aa42014-21.html" target="_blank"><img class="paper-icon" src="./paper_icon.png" width="18" height="14" alt="paper link" /></a></div>
-      <div class="authors"><b>Geem, J.</b>, Ishiguro, M., Bach, Y., Kuroda, D., Naito, H., Hanayama, H., Kim, Y., Kwon, Y., Jin, S., Sekiguchi, T., Okazaki, R., Vaubaillon, J., Imai, M., Oono, T., Futamura, Y., Takagi, S., Sato, M., Kuramoto, K., &amp; Watanabe, M. &mdash; <span class="journal"><i>Astronomy &amp; Astrophysics</i>, 658, A158 (2022)</span></div>
-    </div>
-
-    <div class="subhead">Refereed &middot; Co-Author</div>
-
-    <div class="paper-entry">
-      <div class="authors">Lim, B., Ishiguro, M., Takahashi, J., Akitaya, H., <b>Geem, J.</b>, Bach, Y.P., Jin, S., Jo, H., Choi, S., Seo, J., Kawabata, K.S., Hori, T., Maruta, T., &amp; Im, M. (2025). <cite>Optical and near-infrared contemporaneous polarimetry of C/2023 A3 (Tsuchinshan-ATLAS).</cite> <span class="journal"><i>The Astronomical Journal</i>, 983, 1, L19.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Bourdelle de Micas, J., Perna, D., Fornasier, S., Dotto, E., Ieva, S., Barucci, M.A., <b>Geem, J.</b>, Hasegawa, S., Ishiguro, M., Kitazato, K., Kuroda, D., Mazzotta Epifani, E., Palomba, E., Yoshikawa, M., &amp; Hirabayashi, M. (2025). <cite>Spectral and photometric characterization of (98943) Torifune in preparation for the Hayabusa2# spacecraft flyby.</cite> <span class="journal"><i>Astronomy &amp; Astrophysics</i>, 693, L19.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Jin, S., Ishiguro, M., <b>Geem, J.</b>, Naito, H., Takahashi, J., Akitaya, H., Kuroda, D., Urakawa, S., Takagi, S., Oono, T., Sekiguchi, T., Perna, D., Ieva, S., Bach, Y.P., Imazawa, R., Kawabata, K.S., Watanabe, M., &amp; Jo, H. (2024). <cite>New evidence supporting past dust ejections from active asteroid (4015) Wilson-Harrington.</cite> <span class="journal"><i>Astronomy &amp; Astrophysics</i>, 690, A193.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Hasegawa, S., Marsset, M., DeMeo, F.E., Hanuš, J., Binzel, R.P., Bus, S.J., Burt, B., Polishook, D., Thomas, C.A., <b>Geem, J.</b>, Ishiguro, M., Kuroda, D., &amp; Vernazza, P. (2024). <cite>Candidate Main-belt Asteroids for Surface Heterogeneity.</cite> <span class="journal"><i>The Astronomical Journal</i>, 167(5), 224.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Bach, Y., Ishiguro, M., Takahashi, J., <b>Geem, J.</b>, Kuroda, D., Naito, H., Kwon, J. (2024). <cite>Quantitative grain size estimation on airless bodies from the negative polarization branch. II. Dawn mission targets (4) Vesta and (1) Ceres.</cite> <span class="journal"><i>Astronomy &amp; Astrophysics</i>, 684, A81.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Bach, Y., Ishiguro, M., Takahashi, J., <b>Geem, J.</b>, Kuroda, D., Naito, H., Kwon, J. (2024). <cite>Quantitative grain size estimation on airless bodies from the negative polarization branch. I. Insights from experiments and lunar observations.</cite> <span class="journal"><i>Astronomy &amp; Astrophysics</i>, 684, A80.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Kang, J., Chae, J., <b>Geem, J.</b> (2024). <cite>A Statistical Analysis of Spiral-shaped Wave Patterns in Sunspot Umbrae.</cite> <span class="journal"><i>The Astronomical Journal</i>, 960, 115.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Beniyama, J., Sekiguchi, T., Kuroda, D., Arai, T., Ishibashi, K., Ishiguro, M., Yoshida, F., Senshu, H., Ootsubo, T., Sako, S., Ohsawa, R., Takita, S., <b>Geem, J.</b>, &amp; Bach, Y. (2023). <cite>Simultaneous multicolor photometry of the DESTINY+ target asteroid (3200) Phaethon.</cite> <span class="journal"><i>Publications of the Astronomical Society of Japan</i>, 75(2), 297–310.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Ishiguro, M., Bach, Y., <b>Geem, J.</b>, Naito, H., Kuroda, D., Im, M., Lee, M., Seo, J., Jin, S., Kwon, Y., Oono, T., Takagi, S., Sato, M., Kuramoto, K., Ito, T., Hasegawa, S., Yoshida, F., Arai, T., Akitaya, H., Sekiguchi, T., Okazaki, R., Imai, M., Ohtsuka, K., Watanabe, M., Takahashi, J., Devogele, M., Fedorets, G., Siltala, L., &amp; Granvik, M. (2022). <cite>Polarimetric properties of the near-Sun asteroid (155140) 2005 UD in comparison with other asteroids and meteoritic samples.</cite> <span class="journal"><i>Monthly Notices of the Royal Astronomical Society</i>, 509(3), 4128–4142.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Hasegawa, S., DeMeo, F., Marsset, M., Hanuš, J., Avdellidou, C., Delbo, M., Bus, S., Hanayama, H., Horiuchi, T., Takir, D., Jehin, E., Ferrais, M., <b>Geem, J.</b>, Im, M., Seo, J., Bach, Y., Jin, S., Ishiguro, M., Kuroda, D., Binzel, R., Nakamura, A., Yang, B., &amp; Vernazza, P. (2022). <cite>Spectral Evolution of Dark Asteroid Surfaces Induced by Space Weathering over a Decade.</cite> <span class="journal"><i>The Astronomical Journal</i>, 939(1), L9.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Bach, Y., Ishiguro, M., Takahashi, J., &amp; <b>Geem, J.</b> (2022). <cite>Data Reduction Process and Pipeline for the NIC Polarimetry Mode in Python, NICpolpy.</cite> <span class="journal"><i>Stars and Galaxies</i>, 5, 4.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Hasegawa, S., Marsset, M., DeMeo, F., Bus, S., <b>Geem, J.</b>, Ishiguro, M., Im, M., Kuroda, D., &amp; Vernazza, P. (2021). <cite>Discovery of Two TNO-like Bodies in the Asteroid Belt.</cite> <span class="journal"><i>The Astrophysical Journal</i>, 916(1), L6.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Kuroda, D., <b>Geem, J.</b>, Akitaya, H., Jin, S., Takahashi, J., Takahashi, K., Naito, H., Makino, K., Sekiguchi, T., Bach, Y., Seo, J., Sato, S., Sasago, H., Kawabata, K., Kawakami, A., Tozuka, M., Watanabe, M., Takagi, S., Kuramoto, K., Yoshikawa, M., Hasegawa, S., &amp; Ishiguro, M. (2021). <cite>Implications of High Polarization Degree for the Surface State of Ryugu.</cite> <span class="journal"><i>The Astrophysical Journal</i>, 911(2), L24.</span></div>
-    </div>
-
-    <div class="paper-entry">
-      <div class="authors">Ishiguro, M., Kuroda, D., Watanabe, M., Bach, Y., <b>Geem, J.</b>, Lee, M., Sekiguchi, T., Naito, H., Ohtsuka, K., Hanayama, H., Hasegawa, S., Usui, F., Urakawa, S., Imai, M., Sato, M., &amp; Kuramoto, K. (2017). <cite>Polarimetric Study of Near-Earth Asteroid (1566) Icarus.</cite> <span class="journal"><i>The Astronomical Journal</i>, 154(5), 180.</span></div>
-    </div>
-
-  </section>
-
+<div class="paper-entry">
+   <b><font size="3"><cite>SQUIDPOL: Seoul National University QUadruple Imaging Device for POLarimetry</cite></font></b>
+   &nbsp;<a href="https://ui.adsabs.harvard.edu/abs/2026JKAS...59..211J/abstract" target="_blank"><img src="./paper_icon.png" width="20" height="15"></a><br />
+   Jin, S.<sup>&dagger;</sup>, <b>Geem, J.<sup>&dagger;</sup></b>, Ishiguro, M., Park, W., Oh, H., Park, C., Choi, S., Bach, Y.P., Ju, H., Seo, J., Lim, B., Im, M.<br />
+   <i>Journal of the Korean Astronomical Society</i>, 59, 211 (2026)<br />
+   <font size="2"><sup>&dagger;</sup>These authors contributed equally to this work (co-first authors).</font>
+   <br /><br />
 </div>
+
+<div class="paper-entry">
+   <b><font size="3"><cite>Study of hydrated asteroids via their polarimetric properties at low phase angles</cite></font></b>
+   &nbsp;<a href="https://doi.org/10.1051/0004-6361/202449545" target="_blank"><img src="./paper_icon.png" width="20" height="15"></a><br />
+   <b>Geem, J.</b>, Ishiguro, M., Naito, H., Hasegawa, S., Takahashi, J., Bach, Y.P., Jin, S., Takagi, S., Ono, T., Kuroda, D., Sekiguchi, T., Kuramoto, K., Nakamura, T., Watanabe, M.<br />
+   <i>Astronomy &amp; Astrophysics</i>, 688, A195 (2024)
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   <b><font size="3"><cite>Spectral Type and Geometric Albedo of (98943) 2001 CC21, the Hayabusa2# Mission Target</cite></font></b>
+   &nbsp;<a href="https://doi.org/10.1093/mnrasl/slad097" target="_blank"><img src="./paper_icon.png" width="20" height="15"></a><br />
+   <b>Geem, J.</b>, Ishiguro, M., Granvik, M., Naito, H., Akitaya, H., Sekiguchi, T., Hasegawa, S., Kuroda, D., Oono, T., Bach, Y.P., Jin, S., Imazawa, R., Kawabata, K.S., Takagi, S., Yoshikawa, M., Djupvik, A.A., Gadeberg, J.T., Pursimo, T., Pedros, O.D., Thomsen, J.S., Gray, Z.<br />
+   <i>Monthly Notices of the Royal Astronomical Society</i>, 525, L17–L21 (2023)
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   <b><font size="3"><cite>(3200) Phaethon polarimetry in the negative branch: new evidence for the anhydrous nature of the DESTINY+ target asteroid</cite></font></b>
+   &nbsp;<a href="https://doi.org/10.1093/mnrasl/slac087" target="_blank"><img src="./paper_icon.png" width="20" height="15"></a><br />
+   <b>Geem, J.</b>, Ishiguro, M., Takahashi, J., Akitaya, H., Kawabata, K., Nakaoka, T., Imazawa, R., Mori, F., Jin, S., Bach, Y., Jo, H., Kuroda, D., Hasegawa, S., Yoshida, F., Ishibashi, K., Sekiguchi, T., Beniyama, J., Arai, T., Ikeda, Y., Shinnaka, Y., Granvik, M., et al.<br />
+   <i>Monthly Notices of the Royal Astronomical Society</i>, 516(1), L53–L57 (2022)
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   <b><font size="3"><cite>A polarimetric study of asteroids in comet-like orbits</cite></font></b>
+   &nbsp;<a href="https://www.aanda.org/articles/aa/abs/2022/02/aa42014-21/aa42014-21.html" target="_blank"><img src="./paper_icon.png" width="20" height="15"></a><br />
+   <b>Geem, J.</b>, Ishiguro, M., Bach, Y., Kuroda, D., Naito, H., Hanayama, H., Kim, Y., Kwon, Y., Jin, S., Sekiguchi, T., Okazaki, R., Vaubaillon, J., Imai, M., Oono, T., Futamura, Y., Takagi, S., Sato, M., Kuramoto, K., &amp; Watanabe, M.<br />
+   <i>Astronomy &amp; Astrophysics</i>, 658, A158 (2022)
+   <br /><br />
+</div>
+
+<br />
+<font size="4"><b>Refereed (Co-Author)</b></font><br />
+<br />
+
+<div class="paper-entry">
+   Lim, B., Ishiguro, M., Takahashi, J., Akitaya, H., <b>Geem, J.</b>, Bach, Y.P., Jin, S., Jo, H., Choi, S., Seo, J., Kawabata, K.S., Hori, T., Maruta, T., &amp; Im, M. (2025).
+   <cite>Optical and near-infrared contemporaneous polarimetry of C/2023 A3 (Tsuchinshan-ATLAS).</cite>
+   <i>The Astronomical Journal</i>, 983, 1, L19.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Bourdelle de Micas, J., Perna, D., Fornasier, S., Dotto, E., Ieva, S., Barucci, M.A., <b>Geem, J.</b>, Hasegawa, S., Ishiguro, M., Kitazato, K., Kuroda, D., Mazzotta Epifani, E., Palomba, E., Yoshikawa, M., &amp; Hirabayashi, M. (2025).
+   <cite>Spectral and photometric characterization of (98943) Torifune in preparation for the Hayabusa2# spacecraft flyby.</cite>
+   <i>Astronomy &amp; Astrophysics</i>, 693, L19.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Jin, S., Ishiguro, M., <b>Geem, J.</b>, Naito, H., Takahashi, J., Akitaya, H., Kuroda, D., Urakawa, S., Takagi, S., Oono, T., Sekiguchi, T., Perna, D., Ieva, S., Bach, Y.P., Imazawa, R., Kawabata, K.S., Watanabe, M., &amp; Jo, H. (2024).
+   <cite>New evidence supporting past dust ejections from active asteroid (4015) Wilson-Harrington.</cite>
+   <i>Astronomy &amp; Astrophysics</i>, 690, A193.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Hasegawa, S., Marsset, M., DeMeo, F.E., Hanuš, J., Binzel, R.P., Bus, S.J., Burt, B., Polishook, D., Thomas, C.A., <b>Geem, J.</b>, Ishiguro, M., Kuroda, D., &amp; Vernazza, P. (2024).
+   <cite>Candidate Main-belt Asteroids for Surface Heterogeneity.</cite>
+   <i>The Astronomical Journal</i>, 167(5), 224.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Bach, Y., Ishiguro, M., Takahashi, J., <b>Geem, J.</b>, Kuroda, D., Naito, H., Kwon, J. (2024).
+   <cite>Quantitative grain size estimation on airless bodies from the negative polarization branch. II. Dawn mission targets (4) Vesta and (1) Ceres.</cite>
+   <i>Astronomy &amp; Astrophysics</i>, 684, A81.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Bach, Y., Ishiguro, M., Takahashi, J., <b>Geem, J.</b>, Kuroda, D., Naito, H., Kwon, J. (2024).
+   <cite>Quantitative grain size estimation on airless bodies from the negative polarization branch. I. Insights from experiments and lunar observations.</cite>
+   <i>Astronomy &amp; Astrophysics</i>, 684, A80.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Kang, J., Chae, J., <b>Geem, J.</b> (2024).
+   <cite>A Statistical Analysis of Spiral-shaped Wave Patterns in Sunspot Umbrae.</cite>
+   <i>The Astronomical Journal</i>, 960, 115.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Beniyama, J., Sekiguchi, T., Kuroda, D., Arai, T., Ishibashi, K., Ishiguro, M., Yoshida, F., Senshu, H., Ootsubo, T., Sako, S., Ohsawa, R., Takita, S., <b>Geem, J.</b>, &amp; Bach, Y. (2023).
+   <cite>Simultaneous multicolor photometry of the DESTINY+ target asteroid (3200) Phaethon.</cite>
+   <i>Publications of the Astronomical Society of Japan</i>, 75(2), 297–310.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Ishiguro, M., Bach, Y., <b>Geem, J.</b>, Naito, H., Kuroda, D., Im, M., Lee, M., Seo, J., Jin, S., Kwon, Y., Oono, T., Takagi, S., Sato, M., Kuramoto, K., Ito, T., Hasegawa, S., Yoshida, F., Arai, T., Akitaya, H., Sekiguchi, T., Okazaki, R., Imai, M., Ohtsuka, K., Watanabe, M., Takahashi, J., Devogele, M., Fedorets, G., Siltala, L., &amp; Granvik, M. (2022).
+   <cite>Polarimetric properties of the near-Sun asteroid (155140) 2005 UD in comparison with other asteroids and meteoritic samples.</cite>
+   <i>Monthly Notices of the Royal Astronomical Society</i>, 509(3), 4128–4142.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Hasegawa, S., DeMeo, F., Marsset, M., Hanuš, J., Avdellidou, C., Delbo, M., Bus, S., Hanayama, H., Horiuchi, T., Takir, D., Jehin, E., Ferrais, M., <b>Geem, J.</b>, Im, M., Seo, J., Bach, Y., Jin, S., Ishiguro, M., Kuroda, D., Binzel, R., Nakamura, A., Yang, B., &amp; Vernazza, P. (2022).
+   <cite>Spectral Evolution of Dark Asteroid Surfaces Induced by Space Weathering over a Decade.</cite>
+   <i>The Astronomical Journal</i>, 939(1), L9.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Bach, Y., Ishiguro, M., Takahashi, J., &amp; <b>Geem, J.</b> (2022).
+   <cite>Data Reduction Process and Pipeline for the NIC Polarimetry Mode in Python, NICpolpy.</cite>
+   <i>Stars and Galaxies</i>, 5, 4.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Hasegawa, S., Marsset, M., DeMeo, F., Bus, S., <b>Geem, J.</b>, Ishiguro, M., Im, M., Kuroda, D., &amp; Vernazza, P. (2021).
+   <cite>Discovery of Two TNO-like Bodies in the Asteroid Belt.</cite>
+   <i>The Astrophysical Journal</i>, 916(1), L6.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Kuroda, D., <b>Geem, J.</b>, Akitaya, H., Jin, S., Takahashi, J., Takahashi, K., Naito, H., Makino, K., Sekiguchi, T., Bach, Y., Seo, J., Sato, S., Sasago, H., Kawabata, K., Kawakami, A., Tozuka, M., Watanabe, M., Takagi, S., Kuramoto, K., Yoshikawa, M., Hasegawa, S., &amp; Ishiguro, M. (2021).
+   <cite>Implications of High Polarization Degree for the Surface State of Ryugu.</cite>
+   <i>The Astrophysical Journal</i>, 911(2), L24.
+   <br /><br />
+</div>
+
+<div class="paper-entry">
+   Ishiguro, M., Kuroda, D., Watanabe, M., Bach, Y., <b>Geem, J.</b>, Lee, M., Sekiguchi, T., Naito, H., Ohtsuka, K., Hanayama, H., Hasegawa, S., Usui, F., Urakawa, S., Imai, M., Sato, M., &amp; Kuramoto, K. (2017).
+   <cite>Polarimetric Study of Near-Earth Asteroid (1566) Icarus.</cite>
+   <i>The Astronomical Journal</i>, 154(5), 180.
+   <br /><br />
+</div>
+
+<hr />
+
+</div><!-- end width:750px wrapper -->
 
 </body>
 </html>
